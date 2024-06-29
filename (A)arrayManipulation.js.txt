@@ -1,0 +1,22 @@
+function processArray(arr) {
+    // Ensure the input array contains only numbers from 1 to 20
+    if (!arr.every(num => num >= 1 && num <= 20)) {
+        throw new Error("All numbers in the array must be between 1 and 20 inclusive.");
+    }
+    
+    const newArr = arr.map(num => {
+        if (num % 2 === 0) {
+            // Even number: square it
+            return num * num;
+        } else {
+            // Odd number: triple it
+            return num * 3;
+        }
+    });
+    
+    return newArr;
+}
+
+const inputArray = Array.from({ length: 20 }, (_, i) => i + 1);
+const processedArray = processArray(inputArray);
+console.log(processedArray);
